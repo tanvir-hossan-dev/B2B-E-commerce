@@ -1,0 +1,6 @@
+.footer_bg {
+  background: url("../images/footer.png") no-repeat center / cover;
+  padding: 100px 0px 30px 0px;
+  height: 400px;
+  width: 100%;
+}
