@@ -9,7 +9,7 @@ export const cardSlice = createSlice({
   initialState,
   reducers: {
     addCard: (state, action) => {
-      state.cards.push(action.payload);
+      state.cards = state.cards.push(action.payload);
     },
   },
 });

@@ -13,16 +13,16 @@ const Navbar = () => {
   return (
     <div className="navbar  bg-gray-400">
       <div className="navbar-start">
-        <a className="btn btn-ghost normal-case text-xl">B2B E-COMMERCE</a>
+        <Link className="btn btn-ghost normal-case text-xl">B2B E-COMMERCE</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <a>Item 1</a>
+            <Link>Item 1</Link>
           </li>
 
           <li>
-            <a>Item 3</a>
+            <Link>Item 3</Link>
           </li>
         </ul>
       </div>
