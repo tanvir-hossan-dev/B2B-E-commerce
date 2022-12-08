@@ -1,9 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "../redux/features/auth/authSlice";
+import gravatarUrl from "gravatar-url";
 
 const Navbar = () => {
+  const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLogOut = () => {
@@ -13,21 +15,38 @@ const Navbar = () => {
   return (
     <div className="navbar  bg-gray-400">
       <div className="navbar-start">
-        <Link className="btn btn-ghost normal-case text-xl">B2B E-COMMERCE</Link>
+        <Link to="/home" className="btn btn-ghost normal-case text-xl">
+          B2B E-COMMERCE
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <Link>Item 1</Link>
+            <Link to="/home">Home</Link>
           </li>
 
           <li>
-            <Link>Item 3</Link>
+            <Link to="/customars">Customars</Link>
           </li>
         </ul>
       </div>
-      <div className="navbar-end" onClick={handleLogOut}>
-        <Link className="py-[10px] px-[20px] bg-red-600 text-white rounded-md">Log Out</Link>
+      <div className="navbar-end mr-8">
+        <div className=" dropdown dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+              <img src={gravatarUrl(user.email)} alt={user.name} />
+            </div>
+          </label>
+          <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+            <li>
+              <p className="justify-between">{user?.name}</p>
+            </li>
+
+            <li onClick={handleLogOut}>
+              <p>Logout</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

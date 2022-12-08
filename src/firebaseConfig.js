@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
-const firebaseConfig = {
+const firebaseCon = {
   apiKey: "AIzaSyDdC_gm1i39WAg_zQ6b0BZ6N2VOj2FclrM",
   authDomain: "b2b-e-commerce-25964.firebaseapp.com",
   projectId: "b2b-e-commerce-25964",
@@ -12,7 +12,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const app = initializeApp(firebaseCon);
+const firebaseConfig = getAnalytics(app);
 
 export default firebaseConfig;

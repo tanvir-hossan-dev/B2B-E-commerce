@@ -8,6 +8,7 @@ import useAuthChecked from "./hooks/useAuthChecked";
 import PrivateRouter from "./router/PrivateRouter";
 import PublicRouter from "./router/PublicRoter";
 import Footer from "./components/footer/Footer";
+import MyCustomars from "./components/mycustomars/MyCustomars";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -40,6 +41,14 @@ function App() {
           element={
             <PrivateRouter>
               <Home />
+            </PrivateRouter>
+          }
+        />
+        <Route
+          path="/customars"
+          element={
+            <PrivateRouter>
+              <MyCustomars />
             </PrivateRouter>
           }
         />
