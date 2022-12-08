@@ -14,10 +14,8 @@ const MyCustomars = () => {
     });
   }, []);
 
-  console.log(users);
-
   return (
-    <div className="w-[1100px] m-auto border-[1px] my-8 border-solid py-4 px-6 border-gray-300 rounded-sm">
+    <div className="w-[1200px] m-auto border-[1px] mt-[100px] mb-8 border-solid py-4 px-6 border-gray-300 rounded-sm">
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

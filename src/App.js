@@ -9,6 +9,7 @@ import PrivateRouter from "./router/PrivateRouter";
 import PublicRouter from "./router/PublicRoter";
 import Footer from "./components/footer/Footer";
 import MyCustomars from "./components/mycustomars/MyCustomars";
+import Card from "./components/card/Card";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -49,6 +50,14 @@ function App() {
           element={
             <PrivateRouter>
               <MyCustomars />
+            </PrivateRouter>
+          }
+        />
+        <Route
+          path="/cards"
+          element={
+            <PrivateRouter>
+              <Card />
             </PrivateRouter>
           }
         />

@@ -9,9 +9,17 @@ export const cardSlice = createSlice({
   initialState,
   reducers: {
     addCard: (state, action) => {
-      state.cards = state.cards.push(action.payload);
+      const existing = state?.cards?.find((card) => card.id === action.payload.id);
+      if (existing) {
+        return;
+      } else {
+        state.cards.push(action.payload);
+      }
+    },
+    deleteCard: (state, action) => {
+      state.cards = state.cards.filter((card) => card.id !== action.payload);
     },
   },
 });
 
-export const { addCard } = cardSlice.actions;
+export const { addCard, deleteCard } = cardSlice.actions;

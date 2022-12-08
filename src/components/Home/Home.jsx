@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import data from "./data";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addCard } from "../../redux/features/card/cardSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const card = useSelector((state) => state.card);
 
   const handleSubmit = (item) => {
     dispatch(addCard(item));
@@ -23,7 +24,7 @@ const Home = () => {
               <h3 className="font-sans text-2xl pt-6 ">
                 <Link>{name}</Link>
               </h3>
-              <h3 className="font-sans text-2xl py-2">{price}</h3>
+              <h3 className="font-sans text-2xl py-2">{price} tk</h3>
               <div className="">
                 <button
                   onClick={() => handleSubmit(item)}
