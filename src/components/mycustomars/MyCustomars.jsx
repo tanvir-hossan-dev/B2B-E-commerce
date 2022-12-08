@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import gravatarUrl from "gravatar-url";
+import { useSelector } from "react-redux";
 
 const MyCustomars = () => {
+  const { user: loggedInUser } = useSelector((state) => state.auth);
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const db = getDatabase();
@@ -13,6 +15,11 @@ const MyCustomars = () => {
       setUsers(Arr);
     });
   }, []);
+
+  //   .filter((user) => user.email !== loggedInUser.email)
+
+  const customars = users?.filter((user) => user.email !== loggedInUser.email);
+  console.log(customars);
 
   return (
     <div className="w-[1200px] m-auto border-[1px] mt-[100px] mb-8 border-solid py-4 px-6 border-gray-300 rounded-sm">
